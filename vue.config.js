@@ -7,25 +7,23 @@
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-
 module.exports = {
-  publicPath: '/',
-  transpileDependencies: [
-    'vue-echarts',
-    'resize-detector'
-  ],
+  publicPath: "/",
+  transpileDependencies: ["vue-echarts", "resize-detector"],
   configureWebpack: {
     optimization: {
       splitChunks: {
-        chunks: 'all'
-      }
-    }
-  }
+        chunks: "all",
+      },
+    },
+  },
+  chainWebpack: (config) => {
+    config.module.rules.delete("eslint");
+  },
   // devServer: {
   //   overlay: {
   //     warnings: true,
   //     errors: true
   //   }
   // }
-}
-
+};
